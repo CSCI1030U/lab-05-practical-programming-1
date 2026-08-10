@@ -1,13 +1,28 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+# Autograder for this lab.
+#
+# This workflow does NOT run automatically. It is triggered by the instructor or TA,
+# in batch, against the specific commit a student submitted in the Canvas lab quiz.
+# Two reasons: it keeps the organization's shared Actions minutes for grading rather
+# than for every student push, and it means one run per student per lab, on a known
+# snapshot, instead of a pile of runs whose results nobody reads.
+#
+# Students: run the tests on your own machine with `pytest` - that is your feedback
+# loop, and it is faster than waiting for a CI run.
+#
+# Staff: see github/run_autograder.py in the course repo to dispatch this across a
+# whole class in one command.
 
-name: Python application
+name: Autograde
+
+run-name: autograde ${{ inputs.commit }}
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: "Commit hash to grade (or a branch name such as main)"
+        required: true
+        default: main
 
 permissions:
   contents: read
@@ -19,6 +34,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        # Accepts a full commit SHA as well as a branch name. A SHA that no longer
+        # exists (a force-push, or a hash typed wrong in the quiz) fails here, which
+        # is itself the answer you want.
+        ref: ${{ inputs.commit }}
     - name: Set up Python 3.12
       uses: actions/setup-python@v3
       with:

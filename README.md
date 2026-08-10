@@ -9,16 +9,35 @@ than calling a function.
 **Time:** this lab is meant to be finished in the 80-minute session. If you don't
 finish, you may keep working during the week and submit any time up to the **first 10
 minutes of next week's lab**.  After 10 minutes, though, the lab will not be accepted,
-to avoid a cascade effect.
+to avoid a cascade effect. The **Lab 05 quiz on Canvas** closes at that moment - that is
+where you hand this lab in, so read [How to Submit](#how-to-submit) before you start.
 
 ## Getting Started
 
-Accept the GitHub Classroom assignment invitation in Canvas (the link is in the lab
-assignment on Canvas), which will clone your own copy of the repository. In the folder
-where you keep your CSCI 1030U labs:
+You should be a member of the **CSCI1030U** organization on GitHub, from the invitation
+sent out after Lab 01. If you never accepted that invitation, do it now (check your email,
+or go to <https://github.com/CSCI1030U>) - you can't create your lab repository until
+you're a member. Tell your lab instructor if no invitation ever arrived.
+
+Lab repositories are **templates**: you make your own copy with one click.
+
+1. Open the **Lab 05 template** link in the Canvas assignment.
+2. Click the green **Use this template** button, then **Create a new repository**.
+3. Fill in the form:
+   - **Owner:** `CSCI1030U` (the organization, *not* your own account)
+   - **Repository name:** `lab05-your-username` - for example `lab05-jsmith2026`
+   - **Visibility:** **Private**
+4. Click **Create repository**.
+
+Use **Use this template**, not **Fork** - a fork can never be made private, which would
+show your solution to the whole class.
+
+Then clone it. On your new repo's page, click the green **Code** button and copy the URL.
+In the folder where you keep your CSCI 1030U labs:
 
 ```
 git clone https://github.com/CSCI1030U/lab05-your-username
+cd lab05-your-username
 ```
 
 Two small data files, `sample.txt` and `people.csv`, are included so you can try your
@@ -100,7 +119,12 @@ fix it - the goal is for you to get better at diagnosing and fixing your own bug
 
 ## How to Submit
 
-Once your tests pass (or the session is ending), commit and push:
+Handing in a lab is two steps: **push your work**, then **record it in the Canvas quiz**.
+This is the same routine for every lab.
+
+### Step 1 - Commit and push
+
+Once your tests pass (or the session is ending):
 
 ```
 git add --all
@@ -108,8 +132,38 @@ git commit -m "Lab 05 completed"
 git push origin main
 ```
 
-You can confirm the autograder ran correctly by opening the **Actions** tab on your
-repository page in GitHub. It can take a minute or two.
+Then open your repository page on GitHub and check that your changed files are actually
+there. That is your confirmation the push worked.
+
+> **Check your own work with `pytest`, on your own machine.** Your repository has an
+> autograder, but it does not run when you push - your instructor runs it during marking,
+> against the commit hash you submit below. So `pytest` passing locally is the only
+> pass/fail signal you get, and it is the one that counts. Don't submit without running it.
+
+### Step 2 - Get the commit hash
+
+Check that everything really is committed and pushed, then read the hash of that snapshot:
+
+```
+git status
+git rev-parse HEAD
+```
+
+`git status` should say `nothing to commit, working tree clean` and that your branch is up
+to date with `origin/main`. If it lists changes, go back to Step 1. Then `git rev-parse HEAD`
+prints a 40-character hash, like `3f9a1c2e8b7d4056a1f2e3d4c5b6a7f8091a2b3c`.
+
+### Step 3 - Submit the quiz
+
+Open the **Lab 05 quiz on Canvas** and enter:
+
+- your **repository URL**: `https://github.com/CSCI1030U/lab05-your-username`
+- your **commit hash**, pasted exactly as `git rev-parse HEAD` printed it
+
+Then answer the remaining questions and submit. **The Canvas submission time is your
+submission time**, and the commit hash you give is the snapshot that gets marked - anything
+you push afterwards is not seen. If you fix something important later, get the new hash and
+resubmit if the quiz still allows it.
 
 ## Using AI
 
