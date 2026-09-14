@@ -14,11 +14,6 @@ where you hand this lab in, so read [How to Submit](#how-to-submit) before you s
 
 ## Getting Started
 
-You should be a member of the **CSCI1030U** organization on GitHub, from the invitation
-sent out after Lab 01. If you never accepted that invitation, do it now (check your email,
-or go to <https://github.com/CSCI1030U>) - you can't create your lab repository until
-you're a member. Tell your lab instructor if no invitation ever arrived.
-
 Lab repositories are **templates**: you make your own copy with one click.
 
 1. Open the **Lab 05 template** link in the Canvas lab quiz.
