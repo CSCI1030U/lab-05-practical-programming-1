@@ -19,13 +19,13 @@ Lab repositories are **templates**: you make your own copy with one click.
 1. Open the **Lab 05 template** link in the Canvas lab quiz.
 2. Click the green **Use this template** button, then **Create a new repository**.
 3. Fill in the form:
-   - **Owner:** `CSCI1030U` (the organization, *not* your own account)
-   - **Repository name:** `lab05-your-username` - for example `lab05-jsmith2026`
+   - **Owner:** Your own account
+   - **Repository name:** `lab04-csci1030u`
    - **Visibility:** **Private**
 4. Click **Create repository**.
 
 Use **Use this template**, not **Fork** - a fork can never be made private, which would
-show your solution to the whole class.
+show your solution to the whole class.  For the TA to see your work, you will need to add them as a collaborator.
 
 Then clone it. On your new repo's page, click the green **Code** button and copy the URL.
 In the folder where you keep your CSCI 1030U labs:
